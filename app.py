@@ -4,6 +4,9 @@ import getopt
 from helpers import *
 from improved import *
 
+'''USE ./app.py -n 20 -i 1000 OR ./app.py -n 20 -i 1000 improved'''
+
+# check valid input
 try:
     options, remainder = getopt.getopt(sys.argv[1:], 'n:i:')
 
@@ -12,14 +15,25 @@ except getopt.GetoptError as err:
     sys.exit(1)
 
 
-
 for opt, arg in options:
     if opt in ('-n'):
-        n = int(arg)
+        try:
+            n = int(arg)
+        except:
+            print("ERROR: only integers")
+            sys.exit(1)
 
 
     elif opt in ('-i'):
-        i = int(arg)
+        try:
+            i = int(arg)
+        except:
+            print("ERROR: only integers")
+            sys.exit(1)
+
+    else:
+        print("ERROR: only integers")
+        sys.exit(1)
 
 if len(remainder) > 0:
     if remainder[0].lower() != 'improved':
