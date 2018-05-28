@@ -43,6 +43,9 @@ if len(remainder) > 0:
         simulate_improved(n, i)
         sys.exit(1)
 
+if len(sys.argv) < 3:
+    print('ERROR: usage "./app.py -m 20 -i 1000"')
+    sys.exit(1)
 simulate(n, i)
 
 
