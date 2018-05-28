@@ -23,7 +23,9 @@ def simulate(n = 20, i = 1000, x = 4):
         if False not in array:
             perc += 1
 
-    print(str(perc/10) + ' %')
+    print("In " + str(perc/10) + '%' + " cases all nodes received the packet")
+
+
 
 
 
@@ -42,7 +44,7 @@ def fill_array(array, nodes, occupied, infected):
             infected.append(new_node)
 
 
-simulate()
+# simulate()
 
 
 
