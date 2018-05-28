@@ -2,20 +2,10 @@
 import sys
 import getopt
 from helpers import *
-
-n = None
-i = None
+from improved import *
 
 try:
     options, remainder = getopt.getopt(sys.argv[1:], 'n:i:')
-    if len(remainder) > 0:
-        if remainder[0].lower() != 'improved':
-            print('ERROR: usage "./app.py -m 20 -i 1000 improved"')
-            sys.exit(1)
-        else:
-            '''INSERT IMPROVED ALGORITHM'''
-            print("IMPROVED ALG MUST WORK")
-            sys.exit(1)
 
 except getopt.GetoptError as err:
     print('ERROR:', err)
@@ -30,6 +20,14 @@ for opt, arg in options:
 
     elif opt in ('-i'):
         i = int(arg)
+
+if len(remainder) > 0:
+    if remainder[0].lower() != 'improved':
+        print('ERROR: usage "./app.py -m 20 -i 1000 improved"')
+        sys.exit(1)
+    else:
+        simulate_improved(n, i)
+        sys.exit(1)
 
 simulate(n, i)
 
