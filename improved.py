@@ -3,6 +3,7 @@ from random import *
 def simulate_improved(n = 20, i = 1000, x = 4):
     perc = 0
     for it in range(i):
+        iterations = 1
         array = [False] * n                                     # empty list - MAIN LIST
         infected = []                                           # list of new nodes - WHILE NOT EMPTY -> SPREAD
         first_node = randint(0, n - 1)                          # 1st random node
@@ -12,17 +13,20 @@ def simulate_improved(n = 20, i = 1000, x = 4):
         fill_array(array, nodes_start, infected)                #
 
         while infected:
+            iterations += 1
             for node in infected:
                 nodes = rand_nodes(x, n, node)
                 fill_array(array, nodes, infected)
                 infected.remove(node)
 
+
+        print("It took " + str(iterations) + " to finish")
         # print(array)
 
         if False not in array:
             perc += 1
 
-    print("In " + str(perc / 10) + '%' + " cases all nodes received the packet")
+    print("In " + str(perc / i * 100) + '%' + " cases all nodes received the packet")
 
 
 
